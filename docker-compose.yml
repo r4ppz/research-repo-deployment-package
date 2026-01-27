@@ -1,0 +1,40 @@
+services:
+  db:
+    image: postgres:16
+    container_name: research-repo-db-prod
+    restart: no
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  backend:
+    image: r4ppzf/research-repo-backend:latest
+    container_name: research-repo-backend-prod
+    depends_on:
+      - db
+    # Automatically injects all variables from .env into the container
+    env_file: .env
+    environment:
+      APP_STORAGE_UPLOAD_DIR: /app/uploads
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/${POSTGRES_DB}
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./privileged-users.yaml:/app/config/privileged-users.yaml
+      - ./uploads:/app/uploads
+
+  frontend:
+    image: r4ppzf/research-repo-frontend:latest
+    container_name: research-repo-frontend-prod
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:
