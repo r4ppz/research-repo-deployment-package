@@ -1,6 +1,6 @@
 # Research Repository - Setup & User Guide
 
-This system is fully containerized with Docker, so you don't need to install databases or languages on your machine. It is currently in alpha (v0.1.0), which means it is unstable and has bugs. For more project details, see the [research-repo-docs](https://r4ppz.github.io/research-repo-docs/).
+This system is fully containerized with Docker, so you don't need to install databases or languages on your machine. It is currently in alpha (v0.1.0), which means it is unstable and has bugs. For more project details, see the our [documentation website](https://r4ppz.github.io/research-repo-docs/).
 
 ## 1. Prerequisites (One-Time Setup)
 
@@ -16,13 +16,10 @@ This system is fully containerized with Docker, so you don't need to install dat
 
 The system uses your **Google Email** to determine what you see. By default, everyone is a **Student**. To test the SuperAdmin/DepartmentAdmin/Teacher, you must manually "promote" your email.
 
-1. Open `privileged-users.yaml` in Notepad or VS Code.
+1. Open `privileged-users.yaml` in any text editor.
 2. Add your email address under the desired category:
 
-- **Super Admin**: Full control over paper and request.
-- **Department Admin **: Control thier own paper and request.
-
-> For more info about these read: [Role and Capabilities](https://r4ppz.github.io/research-repo-docs/specification/#roles-capabilities)
+> For more info about these, read:: [Role and Capabilities](https://r4ppz.github.io/research-repo-docs/specification/#roles-capabilities)
 
 ### To Apply Role Changes:
 
