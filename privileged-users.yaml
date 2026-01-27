@@ -1,0 +1,31 @@
+###############################################################################
+#                      USER ROLE & PERMISSIONS MANAGER
+#
+#  * GOOGLE LOGIN REQUIRED: The system uses your Gmail to identify you.
+#  * DEFAULT ROLE: If your email is NOT in this file, you are a STUDENT.
+#  * HOW TO CHANGE ROLES: Add your Gmail under one of the categories below.
+#  * RESTART REQUIRED: You must restart the backend for changes to take effect.
+#  * COMMAND: docker compose restart backend
+#
+# Note: Lines starting with '#' are comments and will be ignored by the system.
+# Please ensure you maintain the correct formatting.
+# If you use VS Code, the '.yml' extension will highlight errors if your formatting is incorrect.
+#
+###############################################################################
+
+# Example configuration:
+
+super_admins:
+  - johnreyrabosa.f@gmail.com # <---- add your email in here
+
+# Note: The system currently uses 5 random mock departments for testing purposes.
+# A 'department_id' (1-5) is strictly required to prevent system errors.
+department_admins:
+  - email: johnreyrabosa18@gmail.com
+    department_id: 1 # <---- this refer to the department.
+
+teachers:
+  - teacher@acdeducation.com.
+
+# NOTE ON STUDENTS
+# Do not add student emails here. Anyone not listed above is a STUDENT by default.
