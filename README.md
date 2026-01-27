@@ -19,7 +19,7 @@ The system uses your **Google Email** to determine what you see. By default, eve
 1. Open `privileged-users.yaml` in any text editor.
 2. Add your email address under the desired category:
 
-> For more info about these, read:: [Role and Capabilities](https://r4ppz.github.io/research-repo-docs/specification/#roles-capabilities)
+> For more info about these, read: [Role and Capabilities](https://r4ppz.github.io/research-repo-docs/specification/#roles-capabilities)
 
 ### To Apply Role Changes:
 
