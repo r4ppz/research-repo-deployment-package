@@ -24,7 +24,6 @@ department_admins:
   - email: researchrepo67@gmail.com
     department_id: 1 # <---- this refer to the department.
 
-# Note: There isnt yet a teacher view in the frontend part, so this probably wouldn't work
 teachers:
   - example@gmail.com
 
