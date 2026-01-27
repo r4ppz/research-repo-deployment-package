@@ -16,7 +16,7 @@
 # Example configuration:
 
 super_admins:
-  - johnreyrabosa.f@gmail.com # <---- add your email in here
+  # - johnreyrabosa.f@gmail.com # <---- add your email in here
 
 # Note: The system currently uses 5 random mock departments for testing purposes.
 # A 'department_id' (1-5) is strictly required to prevent system errors.
@@ -24,8 +24,9 @@ department_admins:
   - email: johnreyrabosa18@gmail.com
     department_id: 1 # <---- this refer to the department.
 
+# Note: There isnt yet a teacher view in the frontend part, so this probably wouldn't work
 teachers:
-  - teacher@acdeducation.com.
+  - johnreyrabosa.f@gmail.com
 
 # NOTE ON STUDENTS
 # Do not add student emails here. Anyone not listed above is a STUDENT by default.
