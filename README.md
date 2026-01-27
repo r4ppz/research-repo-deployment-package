@@ -2,6 +2,8 @@
 
 This system is fully containerized with Docker, so you don't need to install databases or languages on your machine. It is currently in alpha (v0.1.0), which means it is unstable and has bugs. For more project details, see the our [documentation website](https://r4ppz.github.io/research-repo-docs/).
 
+**NOTE**: This containerized setup is provided exclusively for distribution and local testing. There isn't a server yet, so in order to test it out, running the system via Docker is the only way to evaluate the system locally without requiring you to pull the whole codebase (which is quite big and annoying to setup) and build it yourself.
+
 ## 1. Prerequisites (One-Time Setup)
 
 1. **Install Docker Desktop**: Download and install for Windows:
@@ -14,12 +16,12 @@ This system is fully containerized with Docker, so you don't need to install dat
 
 ## Managing User Roles (Admin/Teacher/Student)
 
-The system uses your **Google Email** to determine what you see. By default, everyone is a **Student**. To test the SuperAdmin/DepartmentAdmin/Teacher, you must manually "promote" your email.
+The system uses your **Google Email** to determine what you see. By default, everyone is a **Student**. To test roles and capabilities you must edit the config file manually.
 
 1. Open `privileged-users.yaml` in any text editor.
 2. Add your email address under the desired category:
 
-> For more info about these, read: [Role and Capabilities](https://r4ppz.github.io/research-repo-docs/specification/#roles-capabilities)
+> For more info about roles and capabilities, read: [Role and Capabilities](https://r4ppz.github.io/research-repo-docs/specification/#roles-capabilities)
 
 ### To Apply Role Changes:
 
@@ -54,3 +56,5 @@ docker compose up -d
 | **Resume**     | `docker compose start`   | Quickly wakes the app back up.                                                                     |
 | **Shutdown**   | `docker compose down`    | Fully stops and removes the temporary containers.                                                  |
 | **Full Reset** | `docker compose down -v` | **WARNING**: Deletes all uploaded papers and database entries. Use this for a "Day 1" clean slate. |
+
+> For more info about docker: [Docker Docs/AI](https://docs.docker.com/)
