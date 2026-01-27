@@ -14,7 +14,7 @@ This system is fully containerized with Docker, so you don't need to install dat
 
 ## Managing User Roles (Admin/Teacher/Student)
 
-The system uses your **Google Email** to determine what you see. By default, everyone is a **Student**. To test the Admin or Teacher interfaces, you must manually "promote" your email.
+The system uses your **Google Email** to determine what you see. By default, everyone is a **Student**. To test the SuperAdmin or DepartmentAdmin, you must manually "promote" your email.
 
 1. Open `privileged-users.yaml` in Notepad or VS Code.
 2. Add your email address under the desired category:
