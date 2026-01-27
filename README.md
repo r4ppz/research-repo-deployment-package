@@ -1,6 +1,7 @@
 # Research Repository - Setup & User Guide
 
 This system runs entirely inside **Docker**. You do not need to install any databases or programming languages.
+See the documentation for more info about the project: [research-repo-docs](https://r4ppz.github.io/research-repo-docs/)
 
 ---
 
