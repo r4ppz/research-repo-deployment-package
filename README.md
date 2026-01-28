@@ -1,6 +1,6 @@
 # Research Repository - Setup & User Guide
 
-This system is fully containerized with Docker, so you don't need to install databases or languages on your machine. It is currently in alpha (v0.1.0), which means it is unstable and has bugs. For more project details, see the our [documentation website](https://r4ppz.github.io/research-repo-docs/).
+This system is fully containerized with Docker, so you don't need to install databases or languages on your machine. It is currently in alpha (v0.1.0), which means it is unstable and has bugs. For more project details, see our [documentation website](https://r4ppz.github.io/research-repo-docs/).
 
 **NOTE**: This containerized setup is provided exclusively for distribution and local testing. There isn't a server yet, so in order to test it out, running the system via Docker is the only way to evaluate the system locally without requiring you to pull the whole codebase (which is quite big and annoying to setup) and build it yourself.
 
@@ -34,7 +34,7 @@ This system is fully containerized with Docker, so you don't need to install dat
 
 ## Managing User Roles (Admin/Teacher/Student)
 
-The system uses your **Google Email** to determine what you see. By default, everyone is a **Student**. To test roles and capabilities you must manually edit the config file manually.
+The system uses your **Google Email** to determine what you see. By default, everyone is a **Student**. To test roles and capabilities you must edit the config file manually.
 
 1. Open `privileged-users.yaml` in any text editor.
 2. Add your email address under the desired category:
