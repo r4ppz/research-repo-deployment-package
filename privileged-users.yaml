@@ -1,31 +1,37 @@
-###############################################################################
-#                      USER ROLE & PERMISSIONS MANAGER
+###################################################################################
+#                           USER ROLE & PERMISSIONS MANAGER
 #
-#  * GOOGLE LOGIN REQUIRED: The system uses your Gmail to identify you.
-#  * DEFAULT ROLE: If your email is NOT in this file, you are a STUDENT.
-#  * HOW TO CHANGE ROLES: Add your Gmail under one of the categories below.
-#  * RESTART REQUIRED: You must restart the backend for changes to take effect.
-#  * COMMAND: docker compose restart backend
+#   The system uses your Gmail to identify you.
+#   If your email is NOT in this file, you are a STUDENT.
 #
-# Note: Lines starting with '#' are comments and will be ignored by the system.
-# Please ensure you maintain the correct formatting.
-# If you use VS Code, the '.yml' extension will highlight errors if your formatting is incorrect.
+#   How to change roles:
+#     - Add your Gmail under one of the categories below.
+#     - You must restart the backend for changes to take effect.
+#     - Command to restart:> docker compose restart backend
 #
-###############################################################################
-
-# Example configuration:
+#   Security/Reason:
+#     - In production, this file will be secured on the server and
+#       only developers or admins will be able to modify it.
+#     - The system does not handle signups, only logins.
+#       Therefore, to manage roles and permissions, this config file is required.
+#
+#   Note:
+#     - Lines starting with '#' are comments and will be ignored by the system.
+#     - Please ensure you maintain the correct formatting.
+#
+###################################################################################
 
 super_admins:
-  - johnreyrabosa.f@gmail.com # <---- add your email in here
+  - email: johnreyrabosa.f@gmail.com # <---- Add your email here
 
 # Note: The system currently uses 5 random mock departments for testing purposes.
 # A 'department_id' (1-5) is strictly required to prevent system errors.
 department_admins:
   - email: researchrepo67@gmail.com
-    department_id: 1 # <---- this refer to the department.
+    department_id: 1 # <---- This refers to the department.
 
 teachers:
-  - example@gmail.com
+  - email: example@gmail.com
 
 # NOTE ON STUDENTS
 # Do not add student emails here. Anyone not listed above is a STUDENT by default.

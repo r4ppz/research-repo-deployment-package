@@ -4,7 +4,7 @@ This system is fully containerized with Docker, so you don't need to install dat
 
 **NOTE**: This containerized setup is provided exclusively for distribution and local testing. There isn't a server yet, so in order to test it out, running the system via Docker is the only way to evaluate the system locally without requiring you to pull the whole codebase (which is quite big and annoying to setup) and build it yourself.
 
-## 1. Prerequisites (One-Time Setup)
+## Prerequisites (One-Time Setup)
 
 1. **Install Docker Desktop**: Download and install for Windows:
    [https://www.docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/).
@@ -14,9 +14,27 @@ This system is fully containerized with Docker, so you don't need to install dat
 
 ---
 
+## How to Run the System
+
+### Steps:
+
+1. **Open the project folder in File Explorer:**
+   - Right-click inside the folder and select "Open in Terminal" or "Open command window here" to launch Command Prompt in the folder.
+
+2. **Run the Application:**
+   - In the terminal, execute the following command:
+     ```bash
+     docker compose up -d
+     ```
+
+3. **Access the App:**
+   - Open your web browser and navigate to [http://localhost](http://localhost).
+
+---
+
 ## Managing User Roles (Admin/Teacher/Student)
 
-The system uses your **Google Email** to determine what you see. By default, everyone is a **Student**. To test roles and capabilities you must edit the config file manually.
+The system uses your **Google Email** to determine what you see. By default, everyone is a **Student**. To test roles and capabilities you must manually edit the config file manually.
 
 1. Open `privileged-users.yaml` in any text editor.
 2. Add your email address under the desired category:
@@ -33,28 +51,25 @@ docker compose restart backend
 
 ---
 
-## 3. How to Run the System
+## Control Commands
 
-1. Open this folder in Windows File Explorer.
-2. Right-click on any empty space inside the folder and select "Open in Terminal" (or "Open PowerShell window here").
-3. In the terminal window that opens, type the following command and press Enter:
+| Action         | Command                  | Description                                                 |
+| -------------- | ------------------------ | ----------------------------------------------------------- |
+| **Start**      | `docker compose up -d`   | Starts everything in the background.                        |
+| **Stop**       | `docker compose stop`    | Halts the app but keeps your data/uploads safe.             |
+| **Resume**     | `docker compose start`   | Quickly wakes the app back up.                              |
+| **Shutdown**   | `docker compose down`    | Fully stops and removes the temporary containers.           |
+| **Full Reset** | `docker compose down -v` | Deletes all uploaded papers and drop database. (clean data) |
 
-```bash
+For full restart including pulling the latest image:
+
+> Run this if the devs update the image(code upstream)
+
+```
+docker compose down -v
+docker image rm r4ppzf/research-repo-backend:latest r4ppzf/research-repo-frontend:latest
+docker compose pull
 docker compose up -d
 ```
 
-4. **Access the App**: Open your browser to [http://localhost](http://localhost)
-
----
-
-## 4. Control Commands
-
-| Action         | Command                  | Description                                                                                        |
-| -------------- | ------------------------ | -------------------------------------------------------------------------------------------------- |
-| **Start**      | `docker compose up -d`   | Starts everything in the background.                                                               |
-| **Stop**       | `docker compose stop`    | Halts the app but keeps your data/uploads safe.                                                    |
-| **Resume**     | `docker compose start`   | Quickly wakes the app back up.                                                                     |
-| **Shutdown**   | `docker compose down`    | Fully stops and removes the temporary containers.                                                  |
-| **Full Reset** | `docker compose down -v` | **WARNING**: Deletes all uploaded papers and database entries. Use this for a "Day 1" clean slate. |
-
-> For more info about docker: [Docker Docs/AI](https://docs.docker.com/)
+For more info about docker: [dockerdocsAI](https://docs.docker.com/)
