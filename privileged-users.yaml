@@ -9,15 +9,6 @@
 #     - You must restart the backend for changes to take effect.
 #     - Command to restart:> docker compose restart backend
 #
-#   Reason:
-#     - In production, this file will be secured on the server and
-#       only developers or admins will be able to modify it.
-#     - The system does not handle sign-ups, only logins.
-#       Therefore, to manage roles and permissions, this config file is required.
-#     - We are planning to implement a full authentication system in the future
-#       including sign-up/registration and UI/Frontend way to managing roles and permissions
-#       instead of this config file. But for now this is enough for simplicity.
-#
 #   Note:
 #     - Lines starting with '#' are comments and will be ignored by the system.
 #     - YAML is strict about formatting and indendation.
