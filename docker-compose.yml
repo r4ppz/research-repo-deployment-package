@@ -1,12 +1,14 @@
+# NOTE: ALL ENV IN HERE ARE FOR TESTING PURPOSES ONLY!
+
 services:
   db:
     image: postgres:16
     container_name: research-repo-db-prod
     restart: no
     environment:
-      POSTGRES_DB: ${POSTGRES_DB}
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: research-repo-db
+      POSTGRES_USER: testing
+      POSTGRES_PASSWORD: testing
     ports:
       - "5432:5432"
     volumes:
@@ -17,11 +19,38 @@ services:
     container_name: research-repo-backend-prod
     depends_on:
       - db
-    # Automatically injects all variables from .env into the container
-    env_file: .env
     environment:
+      # Database
       APP_STORAGE_UPLOAD_DIR: /app/uploads
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/${POSTGRES_DB}
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/research-repo-db
+      SPRING_DATASOURCE_USERNAME: testing
+      SPRING_DATASOURCE_PASSWORD: testing
+
+      # Spring Security
+      SPRING_SECURITY_USER_NAME: r4ppz
+      SPRING_SECURITY_USER_PASSWORD: "12312005"
+      SPRING_PROFILES_ACTIVE: dev
+
+      # Google OAuth
+      APP_GOOGLE_CLIENT_ID: 594492409648-tqrnnk9ssgvphc8cnus7k1fmp4o4emru.apps.googleusercontent.com
+      APP_GOOGLE_CLIENT_SECRET: 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
+      APP_GOOGLE_REDIRECT_URI: postmessage
+
+      # JWT
+      APP_JWT_SECRET: zTucuyyFG9R9Sg-SEVltBVIHKvu_C5Z3efNFwg5M22hZhw94HOTSmqjukB9g5lqwr4PkBXD8pq0OVHL19TiSog
+      APP_JWT_ACCESS_TOKEN_EXPIRY: "3600"
+      APP_REFRESH_TOKEN_COOKIE_NAME: refreshToken
+      APP_REFRESH_TOKEN_MAX_AGE: "2592000"
+
+      # CORS
+      APP_CORS_ALLOWED_ORIGINS: "https://r4ppz.github.io,http://localhost:5173,http://localhost:4173/,http://localhost,http://localhost:80"
+      APP_CORS_ALLOWED_METHODS: "GET,POST,PUT,DELETE,PATCH,OPTIONS"
+      APP_CORS_ALLOWED_HEADERS: "*"
+      APP_CORS_ALLOW_CREDENTIALS: "true"
+
+      # Config paths
+      PRIVILEGED_USERS_YAML_PATH: ./privileged-users.yaml
+      UPLOADS_HOST_PATH: ./uploads
     ports:
       - "8080:8080"
     volumes:

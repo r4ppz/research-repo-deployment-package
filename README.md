@@ -2,7 +2,7 @@
 
 This system is fully containerized with Docker, so you don't need to install databases or languages on your machine. It is currently in alpha (v0.1.0), which means it is unstable and has bugs. For more project details, see our [documentation website](https://r4ppz.github.io/research-repo-docs/).
 
-**NOTE**: This containerized setup is provided exclusively for distribution and local testing. There isn't a server yet, so in order to test it out, running the system via Docker is the only way to evaluate the system locally without requiring you to pull the whole codebase (which is quite big and annoying to setup) and build it yourself.
+**NOTE**: This containerized setup is provided exclusively for distribution and local testing. There isn't a server yet, so in order to test it out, running the system via Docker is the only way to evaluate the system locally without requiring you to pull the whole codebase and build it yourself.
 
 ## Prerequisites (One-Time Setup)
 
@@ -61,15 +61,15 @@ docker compose restart backend
 | **Shutdown**   | `docker compose down`    | Fully stops and removes the temporary containers.           |
 | **Full Reset** | `docker compose down -v` | Deletes all uploaded papers and drop database. (clean data) |
 
-For full restart including pulling the latest image:
+For full reset including pulling the latest image:
 
-> Run this if the devs update the image(code upstream)
+> Run this if the devs update the image(modify the code upstream)
 
-```
-docker compose down -v
-docker image rm r4ppzf/research-repo-backend:latest r4ppzf/research-repo-frontend:latest
-docker compose pull
-docker compose up -d
+```bash
+docker compose down -v # <-- shutdown the system and clean the database/mocks
+docker image rm r4ppzf/research-repo-backend:latest r4ppzf/research-repo-frontend:latest # <--- remove local image
+docker compose pull # <--- pull the latest image
+docker compose up -d # <--- run the system again
 ```
 
 For more info about docker: [dockerdocsAI](https://docs.docker.com/)
