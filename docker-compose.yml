@@ -15,7 +15,7 @@ services:
       - pgdata:/var/lib/postgresql/data
 
   backend:
-    image: r4ppzf/research-repo-backend:latest
+    image: ghcr.io/r4ppz/research-repository-backend:latest
     container_name: research-repo-backend-prod
     depends_on:
       - db
@@ -58,7 +58,7 @@ services:
       - ./uploads:/app/uploads
 
   frontend:
-    image: r4ppzf/research-repo-frontend:latest
+    image: ghcr.io/r4ppz/research-repository-frontend:latest
     container_name: research-repo-frontend-prod
     ports:
       - "80:80"
