@@ -1,12 +1,12 @@
 # NOTE: ALL ENV IN HERE ARE FOR TESTING PURPOSES ONLY!
 
 services:
-  db:
+  database:
     image: postgres:16
-    container_name: research-repo-db-prod
+    container_name: research-repo-db-dev
     restart: no
     environment:
-      POSTGRES_DB: research-repo-db
+      POSTGRES_DB: research-repo-db-dev
       POSTGRES_USER: testing
       POSTGRES_PASSWORD: testing
     ports:
@@ -16,13 +16,13 @@ services:
 
   backend:
     image: ghcr.io/r4ppz/research-repository-backend:latest
-    container_name: research-repo-backend-prod
+    container_name: research-repo-backend-dev
     depends_on:
-      - db
+      - database
     environment:
       # Database
       APP_STORAGE_UPLOAD_DIR: /app/uploads
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/research-repo-db
+      SPRING_DATASOURCE_URL: jdbc:postgresql://database:5432/research-repo-db-dev
       SPRING_DATASOURCE_USERNAME: testing
       SPRING_DATASOURCE_PASSWORD: testing
 
@@ -59,7 +59,7 @@ services:
 
   frontend:
     image: ghcr.io/r4ppz/research-repository-frontend:latest
-    container_name: research-repo-frontend-prod
+    container_name: research-repo-frontend-dev
     ports:
       - "80:80"
     depends_on:
