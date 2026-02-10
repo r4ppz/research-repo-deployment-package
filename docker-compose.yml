@@ -1,7 +1,7 @@
 # NOTE: ALL ENV IN HERE ARE FOR TESTING PURPOSES ONLY!
 
 services:
-  database:
+  database-dev:
     image: postgres:16
     container_name: research-repo-db-dev
     restart: no
@@ -14,15 +14,15 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
 
-  backend:
+  backend-dev:
     image: ghcr.io/r4ppz/research-repository-backend:latest
     container_name: research-repo-backend-dev
     depends_on:
-      - database
+      - database-dev
     environment:
       # Database
       APP_STORAGE_UPLOAD_DIR: /app/uploads
-      SPRING_DATASOURCE_URL: jdbc:postgresql://database:5432/research-repo-db-dev
+      SPRING_DATASOURCE_URL: jdbc:postgresql://database-dev:5432/research-repo-db-dev
       SPRING_DATASOURCE_USERNAME: testing
       SPRING_DATASOURCE_PASSWORD: testing
 
@@ -57,13 +57,13 @@ services:
       - ./privileged-users.yaml:/app/config/privileged-users.yaml
       - ./uploads:/app/uploads
 
-  frontend:
+  frontend-dev:
     image: ghcr.io/r4ppz/research-repository-frontend:latest
     container_name: research-repo-frontend-dev
     ports:
       - "80:80"
     depends_on:
-      - backend
+      - backend-dev
 
 volumes:
   pgdata:
